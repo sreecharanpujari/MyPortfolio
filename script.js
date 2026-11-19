@@ -150,7 +150,7 @@ if (!reduceMotion && "IntersectionObserver" in window) {
       observer.unobserve(entry.target);
     });
   }, { threshold: 0.12 });
-  document.querySelectorAll(".section-heading, .two-col, .skill-card, .project-card, .repo-panel, .badge-card, .contact-links > a")
+  document.querySelectorAll(".about-panel, .section-heading, .skill-pill, .project-card, .repo-panel, .badge-card, .contact-card")
     .forEach(element => {
       element.classList.add("reveal");
       revealObserver.observe(element);
