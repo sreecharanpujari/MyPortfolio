@@ -3,7 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Sree Charan Pujari — projects, skills, learning and contact.">
+  <meta name="description" content="Sree Charan Pujari is a first-year B.Tech AIML student at Mohan Babu University, exploring AI, software development, Google Cloud and practical technology projects.">
+  <meta name="theme-color" content="#fbfaf7">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sree Charan Pujari | AI & ML Student, Developer">
+  <meta property="og:description" content="Explore Sree Charan's projects, technical interests, Google Cloud learning achievements and open-source work.">
+  <meta property="og:url" content="https://sreecharanpujari.github.io/MyPortfolio/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sree Charan Pujari | Portfolio">
+  <meta name="twitter:description" content="AI & ML student building practical technology projects.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <title>Sree Charan Pujari | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +21,7 @@
   <script src="script.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <nav class="nav container" aria-label="Main navigation">
       <a class="brand" href="#home">Sree Charan Pujari</a>
@@ -22,7 +32,7 @@
 
   <button class="menu-toggle" id="menuToggle"
     type="button" aria-label="Open navigation"
-    aria-expanded="false">☰</button>
+    aria-expanded="false" aria-controls="navLinks">☰</button>
 </div>
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
@@ -31,7 +41,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero section container" id="home">
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-dot"></span> STUDENT · BUILDER · PROBLEM SOLVER</p>
@@ -43,6 +53,11 @@
           <a class="button button-secondary" href="https://github.com/sreecharanpujari" target="_blank" rel="noreferrer">Explore GitHub <span>↗</span></a>
         </div>
         <div class="hero-meta"><span>📍 India</span><span>🎓 B.Tech · AIML</span><span>☁️ 15 Google Cloud badges</span></div>
+        <div class="hero-socials" aria-label="Social profiles">
+          <a href="https://github.com/sreecharanpujari" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/sreecharanpujari/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a href="mailto:sreecharanpujari@gmail.com">Email ↗</a>
+        </div>
       </div>
       <div class="hero-art" aria-label="A preview of my developer interests and projects">
         <div class="workspace-orbit workspace-orbit-one"></div>
@@ -131,18 +146,18 @@
       <div class="container">
         <div class="section-heading"><div><p class="eyebrow">05 / LEARNING MILESTONES</p><h2>Google Cloud <span>badges.</span></h2></div><div class="badge-total"><strong>15</strong><span>badges earned</span></div></div>
         <p class="badge-intro">A growing collection of hands-on learning achievements across cloud computing, AI, machine learning and related Google Cloud topics.</p>
-        <div class="badge-grid">
-          <div class="badge-card"><span>☁</span><strong>01</strong><small>Cloud & infrastructure</small></div>
-          <div class="badge-card"><span>♙</span><strong>02</strong><small>Identity & access</small></div>
-          <div class="badge-card"><span>✧</span><strong>03</strong><small>Generative AI & Gemini</small></div>
-          <div class="badge-card"><span>◈</span><strong>04</strong><small>Machine learning</small></div>
-          <div class="badge-card"><span>◎</span><strong>05</strong><small>Vision AI</small></div>
-          <div class="badge-card"><span>♫</span><strong>06</strong><small>Speech & language</small></div>
-          <div class="badge-card"><span>⌘</span><strong>07</strong><small>Web technologies</small></div>
-          <div class="badge-card"><span>▤</span><strong>08</strong><small>Data & processing</small></div>
-          <div class="badge-card"><span>✓</span><strong>09</strong><small>Responsible AI</small></div>
+        <div class="badge-grid badge-title-grid">
+          <article class="badge-card"><span>☁</span><strong>01</strong><small>Analyze Images with the Cloud Vision API</small></article>
+          <article class="badge-card"><span>⌘</span><strong>02</strong><small>Build a Website on Google Cloud</small></article>
+          <article class="badge-card"><span>♙</span><strong>03</strong><small>Configure Service Accounts and IAM Roles for Google Cloud</small></article>
+          <article class="badge-card"><span>✧</span><strong>04</strong><small>Create Your First Gemini Enterprise Application</small></article>
+          <article class="badge-card"><span>✦</span><strong>05</strong><small>Develop AI-Powered Prototypes in Google AI Studio</small></article>
+          <article class="badge-card"><span>♫</span><strong>06</strong><small>Implement Speech and Language Solutions with Pre-trained APIs</small></article>
+          <article class="badge-card"><span>▤</span><strong>07</strong><small>Store, Process, and Manage Data on Google Cloud - Console</small></article>
+          <article class="badge-card"><span>⚙</span><strong>08</strong><small>The Basics of Google Cloud Compute</small></article>
+          <article class="badge-card badge-more"><span>＋</span><strong>09–15</strong><small>Seven more earned badges — see the complete collection on LinkedIn</small></article>
         </div>
-        <p class="badge-footnote">Category overview; individual badge titles can be added when the exact names are available.</p>
+        <p class="badge-footnote">Eight badge titles are listed exactly as supplied; the remaining seven are linked through the complete collection rather than being guessed.</p>
         <a class="button button-secondary" href="https://lnkd.in/p/dT2te9_P" target="_blank" rel="noreferrer">View badge achievements on LinkedIn ↗</a>
       </div>
     </section>
@@ -157,6 +172,7 @@
       </div>
     </section>
   </main>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
   <footer class="footer"><div class="container footer-inner"><p>Designed with curiosity. Built to keep learning.</p><span>© <span id="year"></span> Sree Charan Pujari</span></div></footer>
 </body>
 </html>
