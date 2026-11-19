@@ -1,105 +1,101 @@
+"use strict";
 
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 const themeToggle = document.getElementById("themeToggle");
+const backToTop = document.getElementById("backToTop");
 
-// Mobile navigation
+// Mobile navigation: closes on selection, Escape, or switching to desktop.
 function closeMenu() {
   navLinks?.classList.remove("open");
   menuToggle?.setAttribute("aria-expanded", "false");
   menuToggle?.setAttribute("aria-label", "Open navigation");
+  if (menuToggle) menuToggle.textContent = "☰";
 }
 
 menuToggle?.addEventListener("click", () => {
-  const open = navLinks.classList.toggle("open");
+  const open = navLinks?.classList.toggle("open") ?? false;
   menuToggle.setAttribute("aria-expanded", String(open));
-  menuToggle.setAttribute(
-    "aria-label",
-    open ? "Close navigation" : "Open navigation"
-  );
+  menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+  menuToggle.textContent = open ? "✕" : "☰";
 });
 
-navLinks?.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", closeMenu);
-});
-
+navLinks?.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
 document.addEventListener("keydown", event => {
   if (event.key === "Escape") closeMenu();
 });
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 600) closeMenu();
+});
 
-// Dark / light theme
-const savedTheme = localStorage.getItem("portfolio-theme");
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+// Theme preference with a safe fallback if browser storage is unavailable.
+const themeStorageKey = "portfolio-theme";
+const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? false;
+let savedTheme = null;
+try { savedTheme = localStorage.getItem(themeStorageKey); } catch (error) {
+  console.warn("Theme preference storage is unavailable.", error);
+}
 
 function applyTheme(dark) {
   document.body.classList.toggle("dark-mode", dark);
-  themeToggle.textContent = dark ? "☀️" : "🌙";
-  themeToggle.setAttribute(
-    "aria-label",
-    dark ? "Switch to light mode" : "Switch to dark mode"
-  );
+  if (themeToggle) {
+    themeToggle.textContent = dark ? "☀️" : "🌙";
+    themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+    themeToggle.setAttribute("aria-pressed", String(dark));
+    themeToggle.title = dark ? "Switch to light mode" : "Switch to dark mode";
+  }
 }
-
 applyTheme(savedTheme ? savedTheme === "dark" : prefersDark);
 
 themeToggle?.addEventListener("click", () => {
   const dark = !document.body.classList.contains("dark-mode");
   applyTheme(dark);
-  localStorage.setItem("portfolio-theme", dark ? "dark" : "light");
+  try { localStorage.setItem(themeStorageKey, dark ? "dark" : "light"); } catch (error) {
+    console.warn("Could not save theme preference.", error);
+  }
 });
 
-// Automatic copyright year
+// Copyright year.
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
 
-// Safely escape GitHub API text
+// Escape untrusted GitHub API text before inserting it into HTML.
 function escapeHTML(value) {
   return String(value).replace(/[&<>"']/g, char => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
   })[char]);
 }
 
-// GitHub repositories
+// Load public, non-fork repositories from the GitHub API.
 async function loadRepositories() {
   const list = document.getElementById("repoList");
   const count = document.getElementById("repoCount");
   const error = document.getElementById("repoError");
-
   if (!list || !count || !error) return;
 
   try {
     const response = await fetch(
-      "https://api.github.com/users/sreecharanpujari/repos?sort=updated&per_page=100"
+      "https://api.github.com/users/sreecharanpujari/repos?sort=updated&per_page=100",
+      { headers: { Accept: "application/vnd.github+json" } }
     );
-
-    if (!response.ok) {
-      throw new Error(`GitHub returned ${response.status}`);
-    }
+    if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
 
     const repos = await response.json();
     const publicRepos = repos
-      .filter(repo => !repo.fork)
+      .filter(repo => !repo.fork && typeof repo.html_url === "string" && repo.html_url.startsWith("https://github.com/"))
       .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 
     count.textContent = `${publicRepos.length} public`;
     error.hidden = true;
 
     if (!publicRepos.length) {
-      list.innerHTML =
-        '<p class="repo-loading">No public repositories found yet.</p>';
+      list.innerHTML = '<p class="repo-loading">No public repositories found yet.</p>';
       return;
     }
 
     list.innerHTML = publicRepos.map(repo => `
       <article class="repo-item">
-        <a href="${escapeHTML(repo.html_url)}"
-           target="_blank" rel="noopener noreferrer">
-          ${escapeHTML(repo.name)} ↗
-        </a>
+        <a href="${escapeHTML(repo.html_url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(repo.name)} ↗</a>
         <p>${escapeHTML(repo.description || "No description added yet.")}</p>
         <div class="repo-meta">
           <span>${escapeHTML(repo.language || "Not specified")}</span>
@@ -108,13 +104,55 @@ async function loadRepositories() {
         </div>
       </article>
     `).join("");
-
-  } catch (err) {
-    console.error("GitHub repository loading failed:", err);
+  } catch (error) {
+    console.error("GitHub repository loading failed:", error);
     count.textContent = "GitHub";
     list.innerHTML = "";
     error.hidden = false;
   }
 }
-
 loadRepositories();
+
+// Back-to-top control.
+backToTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+const updateBackToTop = () => backToTop?.classList.toggle("visible", window.scrollY > 500);
+window.addEventListener("scroll", updateBackToTop, { passive: true });
+updateBackToTop();
+
+// Highlight the navigation link for the section currently in view.
+const sectionLinks = [...(navLinks?.querySelectorAll('a[href^="#"]') ?? [])];
+const sections = sectionLinks
+  .map(link => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
+
+if ("IntersectionObserver" in window) {
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const current = "#" + entry.target.id;
+      sectionLinks.forEach(link => {
+        if (link.getAttribute("href") === current) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      });
+    });
+  }, { rootMargin: "-28% 0px -62% 0px" });
+  sections.forEach(section => sectionObserver.observe(section));
+}
+
+// Subtle reveal motion; content remains visible if reduced motion is requested.
+const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+if (!reduceMotion && "IntersectionObserver" in window) {
+  document.documentElement.classList.add("has-reveal");
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".section-heading, .two-col, .skill-card, .project-card, .repo-panel, .badge-card, .contact-links > a")
+    .forEach(element => {
+      element.classList.add("reveal");
+      revealObserver.observe(element);
+    });
+}
