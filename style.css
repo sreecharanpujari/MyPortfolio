@@ -332,3 +332,23 @@ body.light-mode .skill-category-heading>span{background:#edf3ff;color:#477bc7}
 body.light-mode .skill-category-heading h3{color:#253653}
 body.light-mode .skill-category-learning{border-color:#b9a9df}
 @media(max-width:560px){.skill-category{padding:16px}.skill-category .skills-grid{gap:8px}}
+
+
+/* Currently exploring: learning-in-progress cards. */
+.exploring-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px}
+.exploring-card{display:flex;align-items:flex-start;gap:14px;padding:21px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,var(--panel),var(--panel2));box-shadow:0 9px 24px #00000010;transition:transform .22s,border-color .22s,box-shadow .22s}
+.exploring-card:hover{transform:translateY(-4px);border-color:#7a82d0;box-shadow:0 14px 28px #00000018}
+.exploring-icon{flex:0 0 40px;display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#17345a;color:#7cdbff;font-size:1.25rem}
+.exploring-status{color:#76d8ff;font-size:.61rem;font-weight:800;letter-spacing:.12em}
+.exploring-card h3{margin:5px 0 7px;font:700 1.05rem "Space Grotesk",sans-serif}
+.exploring-card p{margin:0;color:var(--muted);font-size:.8rem;line-height:1.6}
+.exploring-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}
+.exploring-tags span{padding:5px 8px;border:1px solid var(--line);border-radius:20px;color:#9fc9ff;font-size:.65rem;font-weight:700}
+body.light-mode .exploring-card{background:linear-gradient(135deg,#fff,#f3f6fc);border-color:#e1e7f1;box-shadow:0 7px 20px rgba(35,51,83,.045)}
+body.light-mode .exploring-icon{background:#edf3ff;color:#477bc7}
+body.light-mode .exploring-status{color:#4774ad}
+body.light-mode .exploring-card h3{color:#253653}
+body.light-mode .exploring-card p{color:#65718a}
+body.light-mode .exploring-tags span{color:#526b96;border-color:#dfe6f1}
+@media(max-width:850px){.exploring-grid{grid-template-columns:1fr}.exploring-card{padding:18px}}
+@media(prefers-reduced-motion:reduce){.exploring-card{transition:none}}
