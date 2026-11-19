@@ -305,3 +305,11 @@ body.dark-mode .nav-links.open { border-color:#30394b; }
   .back-to-top { right:14px; bottom:14px; }
 }
 @media(hover:none) { .project-card:hover,.skill-card:hover,.badge-card:hover,.education-card:hover,.contact-links>a:hover { transform:none; box-shadow:none; } }
+
+
+/* Scroll reveal enhancement (progressive: only active when JS enables it). */
+.has-reveal .reveal { opacity:0; transform:translateY(18px); transition:opacity .55s ease,transform .55s ease; }
+.has-reveal .reveal.is-visible { opacity:1; transform:translateY(0); }
+@media(prefers-reduced-motion:reduce) {
+  .has-reveal .reveal,.has-reveal .reveal.is-visible { opacity:1; transform:none; transition:none; }
+}
