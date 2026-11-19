@@ -111,3 +111,21 @@
   letter-spacing: -0.02em;
   word-spacing: 0.08em;
 }
+/* Hero heading refinement */
+.hero-copy h1 {
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  word-spacing: 0.04em;
+}
+
+.hero-copy h1 span {
+  display: inline;
+}
+
+@media (max-width: 600px) {
+  .hero-copy h1 {
+    font-size: clamp(2rem, 8vw, 2.7rem);
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+  }
+}
