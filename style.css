@@ -262,3 +262,22 @@ body.light-mode .contact-email-address a:hover{color:#6548bd}
 body.light-mode .contact-actions .copy-email{background:#fff!important;color:#263b61!important;border-color:#477bc7!important}
 body.light-mode .contact-actions .copy-email:hover{background:#edf3ff!important}
 @media(max-width:650px){.contact-actions{width:100%;min-width:0}.contact-actions .button{width:100%;justify-content:center}}
+
+
+/* Expanded featured-project case studies. */
+.project-details{margin-top:16px;padding-top:12px;border-top:1px solid var(--line)}
+.project-details summary{font-size:.82rem;padding:4px 0}
+.case-study{display:grid;gap:12px;margin-top:12px;padding:15px;border:1px solid rgba(105,155,220,.22);border-radius:13px;background:rgba(7,15,35,.38)}
+.case-study>div{padding-left:11px;border-left:2px solid rgba(69,190,255,.55)}
+.case-label{display:block;margin-bottom:3px;color:#76d8ff;font-size:.62rem;font-weight:800;letter-spacing:.13em}
+.case-study p{margin:0!important;font-size:.78rem!important;line-height:1.55;color:#c3cde2}
+.case-study .case-note{padding:10px 12px;border-radius:9px;background:rgba(255,190,75,.09);color:#f2d49b;font-size:.74rem!important}
+.case-link{display:inline-flex;width:fit-content;align-items:center;gap:6px;color:#76d8ff;font-size:.78rem;font-weight:800}
+.case-link:hover{text-decoration:underline;text-underline-offset:3px}
+body.light-mode .case-study{background:#f7f9fd;border-color:#e0e7f2}
+body.light-mode .case-study>div{border-left-color:#8aa9d5}
+body.light-mode .case-label{color:#4774ad}
+body.light-mode .case-study p{color:#596780}
+body.light-mode .case-study .case-note{background:#fff7e8;color:#795b27}
+body.light-mode .case-link{color:#376fae}
+@media(max-width:650px){.case-study{padding:12px;gap:10px}}
