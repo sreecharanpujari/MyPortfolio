@@ -243,3 +243,13 @@ body.light-mode .education-content>p:last-child{color:#65718a}
 /* Improve email address contrast in the About quick facts. */
 .quick-facts > div:nth-child(2) span{color:#f4f6ff;font-weight:600;overflow-wrap:anywhere}
 body.light-mode .quick-facts > div:nth-child(2) span{color:#253653;font-weight:700}
+
+/* Make the contact email prominent and readable in both themes. */
+.contact-email-address{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:14px 0 0!important;color:#fff!important;font-size:.98rem;font-weight:700}
+.contact-email-address span{color:#79dfff;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+.contact-email-address a{color:#fff;text-decoration:underline;text-decoration-color:#65cfff;text-underline-offset:4px;overflow-wrap:anywhere}
+.contact-email-address a:hover{color:#8fe5ff}
+body.light-mode .contact-email-address{color:#253653!important}
+body.light-mode .contact-email-address span{color:#4774ad}
+body.light-mode .contact-email-address a{color:#253653;text-decoration-color:#477bc7}
+body.light-mode .contact-email-address a:hover{color:#6548bd}
