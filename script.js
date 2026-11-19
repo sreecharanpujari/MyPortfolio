@@ -86,6 +86,7 @@ async function loadRepositories() {
       .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 
     count.textContent = `${publicRepos.length} public`;
+    list.setAttribute("aria-busy", "false");
     error.hidden = true;
 
     if (!publicRepos.length) {
@@ -107,6 +108,7 @@ async function loadRepositories() {
   } catch (error) {
     console.error("GitHub repository loading failed:", error);
     count.textContent = "GitHub";
+    list.setAttribute("aria-busy", "false");
     list.innerHTML = "";
     error.hidden = false;
   }
@@ -150,7 +152,7 @@ if (!reduceMotion && "IntersectionObserver" in window) {
       observer.unobserve(entry.target);
     });
   }, { threshold: 0.12 });
-  document.querySelectorAll(".about-panel, .section-heading, .skill-pill, .project-card, .repo-panel, .badge-card, .contact-card")
+  document.querySelectorAll(".about-panel, .section-heading, .skill-pill, .project-card, .repo-panel, .badge-card, .contact-card, .exploring-card, .roadmap-item, .pinned-repo")
     .forEach(element => {
       element.classList.add("reveal");
       revealObserver.observe(element);
