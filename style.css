@@ -111,29 +111,34 @@
   letter-spacing: -0.02em;
   word-spacing: 0.08em;
 }
-/* Hero heading refinement */
+
+/* Final hero heading fix */
+.hero-copy {
+  min-width: 0;
+}
+
 .hero-copy h1 {
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
   line-height: 1.2;
-  letter-spacing: -0.035em;
-  word-spacing: 0.04em;
+  letter-spacing: -0.045em;
+  overflow-wrap: normal;
 }
 
 .hero-copy h1 span {
-  display: inline;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 @media (max-width: 600px) {
   .hero-copy h1 {
-    font-size: clamp(2rem, 8vw, 2.7rem);
+    font-size: clamp(1.35rem, 6.5vw, 2.5rem);
     line-height: 1.25;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.035em;
   }
 }
-/* Keep the full name together */
-.hero-copy h1 span {
-  white-space: nowrap;
-}
 
-.hero-copy h1 {
-  font-size: clamp(2rem, 3.5vw, 3.5rem);
+@media (max-width: 380px) {
+  .hero-copy h1 {
+    font-size: clamp(1.25rem, 6.2vw, 1.8rem);
+  }
 }
