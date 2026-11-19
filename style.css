@@ -208,3 +208,12 @@ body.light-mode .project-details strong{color:#253653}
  .hero-copy,.hero-art,.hero-art .planet-two,.hero-art .code-float,.hero-art .orbit-a{animation:none!important}
  .reveal{opacity:1;transform:none;transition:none}
 }
+
+
+/* Contact actions and accessible copy confirmation. */
+.contact-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;position:relative;z-index:2}
+.copy-email{font:700 .88rem "DM Sans",sans-serif;cursor:pointer}
+.site-toast{position:fixed;left:50%;bottom:26px;z-index:100;transform:translate(-50%,14px);opacity:0;pointer-events:none;padding:11px 18px;border-radius:12px;background:#172544;color:#fff;border:1px solid #536b9b;box-shadow:0 10px 30px #07102233;font-size:.86rem;font-weight:700;transition:opacity .22s ease,transform .22s ease}
+.site-toast.visible{opacity:1;transform:translate(-50%,0)}
+body.light-mode .site-toast{background:#253653;border-color:#536b9b;color:#fff}
+@media(max-width:600px){.contact-actions{align-items:stretch}.contact-actions .button{justify-content:center}}
