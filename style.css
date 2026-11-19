@@ -239,3 +239,7 @@ body.light-mode .education-degree{color:#4774ad!important}
 body.light-mode .education-content>p:last-child{color:#65718a}
 @media(max-width:650px){.education-timeline{padding-left:28px}.education-timeline::before{left:11px}.education-dot{left:-28px;width:24px;height:24px}.education-content{padding:17px}.education-content h3{font-size:1.1rem}.education-topline{font-size:.61rem}}
 @media(prefers-reduced-motion:reduce){.education-content{transition:none}}
+
+/* Improve email address contrast in the About quick facts. */
+.quick-facts > div:nth-child(2) span{color:#f4f6ff;font-weight:600;overflow-wrap:anywhere}
+body.light-mode .quick-facts > div:nth-child(2) span{color:#253653;font-weight:700}
