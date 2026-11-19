@@ -156,3 +156,26 @@ if (!reduceMotion && "IntersectionObserver" in window) {
       revealObserver.observe(element);
     });
 }
+
+
+// Copy email address from the contact section.
+const copyEmailButton = document.getElementById("copyEmail");
+const siteToast = document.getElementById("siteToast");
+let toastTimeout;
+function showSiteToast(message) {
+  if (!siteToast) return;
+  siteToast.textContent = message;
+  siteToast.classList.add("visible");
+  window.clearTimeout(toastTimeout);
+  toastTimeout = window.setTimeout(() => siteToast.classList.remove("visible"), 2600);
+}
+copyEmailButton?.addEventListener("click", async () => {
+  const email = copyEmailButton.dataset.email;
+  if (!email) return;
+  try {
+    await navigator.clipboard.writeText(email);
+    showSiteToast("Email address copied!");
+  } catch (error) {
+    showSiteToast("Copy unavailable — use sreecharanpujari@gmail.com");
+  }
+});
