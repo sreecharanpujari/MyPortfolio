@@ -217,3 +217,25 @@ body.light-mode .project-details strong{color:#253653}
 .site-toast.visible{opacity:1;transform:translate(-50%,0)}
 body.light-mode .site-toast{background:#253653;border-color:#536b9b;color:#fff}
 @media(max-width:600px){.contact-actions{align-items:stretch}.contact-actions .button{justify-content:center}}
+
+
+/* Education and learning journey timeline. */
+.education-timeline{position:relative;display:grid;gap:18px;max-width:900px;margin:28px auto 0;padding-left:34px}
+.education-timeline::before{content:"";position:absolute;left:13px;top:20px;bottom:24px;width:2px;background:linear-gradient(180deg,#18c8ff,#8b48ff,#18c8ff);opacity:.65}
+.education-item{position:relative}
+.education-dot{position:absolute;left:-34px;top:22px;width:28px;height:28px;display:grid;place-items:center;border:1px solid #6b78d5;border-radius:50%;background:#111a35;color:#8fdfff;font-size:.7rem;font-weight:800;box-shadow:0 0 18px #398bff33}
+.education-content{padding:21px 24px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(115deg,var(--panel),var(--panel2));box-shadow:0 10px 26px #00000012;transition:transform .22s,border-color .22s}
+.education-content:hover{transform:translateX(4px);border-color:#8170c9}
+.education-topline{display:flex;justify-content:space-between;gap:12px;align-items:center;color:#6fcfff;font-size:.68rem;font-weight:800;letter-spacing:.12em}
+.education-topline small{padding:4px 9px;border-radius:20px;background:#7860bd20;color:#bd9cff;font-size:.62rem;letter-spacing:.06em}
+.education-content h3{margin:10px 0 2px;font:700 1.25rem "Space Grotesk",sans-serif}
+.education-degree{margin:0!important;color:#9fc9ff!important;font-weight:700;font-size:.9rem}
+.education-content>p:last-child{margin:9px 0 0;color:var(--muted);font-size:.88rem}
+body.light-mode .education-content{background:linear-gradient(115deg,#fff,#f0f4fc);border-color:#e1e7f1;box-shadow:0 7px 20px rgba(35,51,83,.05)}
+body.light-mode .education-dot{background:#fff;color:#477bc7;border-color:#cbd8ee}
+body.light-mode .education-topline{color:#527ab5}
+body.light-mode .education-topline small{background:#eee8fb;color:#7253b8}
+body.light-mode .education-degree{color:#4774ad!important}
+body.light-mode .education-content>p:last-child{color:#65718a}
+@media(max-width:650px){.education-timeline{padding-left:28px}.education-timeline::before{left:11px}.education-dot{left:-28px;width:24px;height:24px}.education-content{padding:17px}.education-content h3{font-size:1.1rem}.education-topline{font-size:.61rem}}
+@media(prefers-reduced-motion:reduce){.education-content{transition:none}}
