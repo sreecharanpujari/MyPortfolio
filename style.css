@@ -281,3 +281,38 @@ body.light-mode .case-study p{color:#596780}
 body.light-mode .case-study .case-note{background:#fff7e8;color:#795b27}
 body.light-mode .case-link{color:#376fae}
 @media(max-width:650px){.case-study{padding:12px;gap:10px}}
+
+
+/* GitHub contribution graph and curated featured repositories. */
+.github-showcase{display:grid;gap:22px;margin-top:24px}
+.contribution-card,.pinned-projects{padding:22px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(130deg,var(--panel),var(--panel2));box-shadow:0 10px 28px #00000012}
+.showcase-heading{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.showcase-kicker{color:#76d8ff;font-size:.64rem;font-weight:800;letter-spacing:.14em}
+.showcase-heading h3{margin:4px 0 0;font:700 1.25rem "Space Grotesk",sans-serif}
+.showcase-heading h3 em{color:#b98aff;font-style:normal}
+.showcase-heading>a{color:#79dfff;font-size:.78rem;font-weight:700;white-space:nowrap}
+.showcase-description,.graph-note{color:var(--muted);font-size:.8rem;margin:8px 0 14px}
+.contribution-image-link{display:block;overflow-x:auto;padding:14px 10px;border:1px solid var(--line);border-radius:12px;background:#080f22}
+.contribution-graph{display:block;width:100%;min-width:620px;height:auto;min-height:96px;object-fit:contain}
+.graph-note{margin:9px 0 0;font-size:.68rem}
+.pinned-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+.pinned-repo{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-height:185px;padding:16px;border:1px solid var(--line);border-radius:13px;background:rgba(7,15,35,.36);transition:transform .2s,border-color .2s,box-shadow .2s}
+.pinned-repo:hover{transform:translateY(-3px);border-color:#6e9bda;box-shadow:0 10px 22px #00000018}
+.pinned-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:#17345a;color:#7cdbff;font-size:1.1rem}
+.pinned-repo strong{font:700 .98rem "Space Grotesk",sans-serif}
+.pinned-repo small{color:var(--muted);font-size:.72rem;line-height:1.45}
+.pinned-language{color:#8fa9d1;font-size:.66rem;font-weight:700}
+.pinned-repo>b{margin-top:auto;color:#79dfff;font-size:.72rem}
+body.light-mode .contribution-card,body.light-mode .pinned-projects{background:linear-gradient(130deg,#fff,#f3f6fc);border-color:#e1e7f1;box-shadow:0 7px 20px rgba(35,51,83,.05)}
+body.light-mode .showcase-kicker{color:#4774ad}
+body.light-mode .showcase-heading h3{color:#253653}
+body.light-mode .showcase-heading h3 em{color:#7859bd}
+body.light-mode .showcase-heading>a,body.light-mode .pinned-repo>b{color:#376fae}
+body.light-mode .showcase-description,body.light-mode .graph-note,body.light-mode .pinned-repo small{color:#68758d}
+body.light-mode .contribution-image-link{background:#f5f8fd;border-color:#e2e8f2}
+body.light-mode .pinned-repo{background:#fff;border-color:#e1e7f1}
+body.light-mode .pinned-repo strong{color:#253653}
+body.light-mode .pinned-icon{background:#edf3ff;color:#477bc7}
+body.light-mode .pinned-language{color:#647da5}
+@media(max-width:900px){.pinned-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.contribution-card,.pinned-projects{padding:16px}.pinned-grid{grid-template-columns:1fr}.pinned-repo{min-height:150px}.showcase-heading{align-items:flex-start}}
