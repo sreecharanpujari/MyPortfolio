@@ -380,3 +380,14 @@ body.light-mode .roadmap-state{color:#7253b8;border-color:#c9bce7}
 .pinned-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .pinned-repo{min-height:170px;padding:18px}
 @media(max-width:650px){.pinned-grid{grid-template-columns:1fr}.pinned-projects{padding:16px}}
+
+
+/* Final accessibility and focus polish. */
+:where(a,button,summary,[tabindex]):focus-visible{outline:3px solid #65caff;outline-offset:4px}
+.skip-link:focus-visible{z-index:10000}
+.project-details summary{cursor:pointer}
+.project-details summary:focus-visible{border-radius:6px}
+@media(prefers-reduced-motion:reduce){
+  html:focus-within{scroll-behavior:auto}
+  .pinned-repo,.project-card,.exploring-card{transition:none!important}
+}
