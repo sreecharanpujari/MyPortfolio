@@ -372,3 +372,11 @@ body.light-mode .roadmap-content p{color:#65718a}
 body.light-mode .roadmap-tags span{color:#526b96;border-color:#dfe6f1}
 body.light-mode .roadmap-state{color:#7253b8;border-color:#c9bce7}
 @media(max-width:600px){.roadmap-item{grid-template-columns:36px minmax(0,1fr);gap:12px;padding:16px}.roadmap-number{width:34px;height:34px}.roadmap-state{grid-column:2;justify-self:start}.roadmap-content h3{font-size:.95rem}}
+
+
+/* Repository showcase after removing the external contribution graph. */
+.github-showcase{display:block;margin-top:24px}
+.pinned-projects{padding:24px}
+.pinned-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.pinned-repo{min-height:170px;padding:18px}
+@media(max-width:650px){.pinned-grid{grid-template-columns:1fr}.pinned-projects{padding:16px}}
