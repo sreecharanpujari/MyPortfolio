@@ -142,3 +142,114 @@
     font-size: clamp(1.25rem, 6.2vw, 1.8rem);
   }
 }
+
+/* NAVIGATION CONTROLS */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #d9dce4;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: transform .2s, background .2s;
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg);
+}
+
+/* DARK MODE */
+body.dark-mode {
+  background: #111827;
+  color: #edf0f7;
+}
+
+body.dark-mode .site-header {
+  background: rgba(17,24,39,.94);
+  border-color: #30394b;
+}
+
+body.dark-mode .nav-links,
+body.dark-mode .hero-intro,
+body.dark-mode .about-copy > p,
+body.dark-mode .section-note,
+body.dark-mode .project-body > p,
+body.dark-mode .project-body ul,
+body.dark-mode .contact-intro {
+  color: #aab4c5;
+}
+
+body.dark-mode .section-soft {
+  background: #192234;
+}
+
+body.dark-mode .skill-card,
+body.dark-mode .project-card,
+body.dark-mode .repo-panel,
+body.dark-mode .education-card,
+body.dark-mode .badge-card,
+body.dark-mode .contact-links > a,
+body.dark-mode .workspace-card {
+  background: #202c40;
+  border-color: #354158;
+  color: #edf0f7;
+}
+
+body.dark-mode .workspace-topbar,
+body.dark-mode .workspace-divider,
+body.dark-mode .project-footer {
+  border-color: #354158;
+}
+
+body.dark-mode .workspace-projects strong,
+body.dark-mode .project-body h3,
+body.dark-mode .skill-card h3 {
+  color: #edf0f7;
+}
+
+body.dark-mode .tech-list span {
+  background: #303d53;
+  color: #d7deeb;
+}
+
+body.dark-mode .button-secondary,
+body.dark-mode .theme-toggle {
+  background: #263349;
+  color: #edf0f7;
+  border-color: #45516a;
+}
+
+body.dark-mode .nav-links.open {
+  background: #111827;
+}
+
+body.dark-mode .footer {
+  border-color: #30394b;
+}
+
+body.dark-mode .hero-tagline {
+  color: #e2e8f0;
+}
+
+/* ACCESSIBILITY */
+:focus-visible {
+  outline: 3px solid #7188f5;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
