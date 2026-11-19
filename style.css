@@ -253,3 +253,55 @@ body.dark-mode .hero-tagline {
     transition-duration: .01ms !important;
   }
 }
+
+
+/* ===== Portfolio polish pass ===== */
+:root { color-scheme: light; }
+body { overflow-x: hidden; }
+section[id] { scroll-margin-top: 88px; }
+.nav-controls { order: 2; }
+.nav-links { order: 3; }
+.hero-socials { display:flex; flex-wrap:wrap; gap:18px; margin-top:18px; }
+.hero-socials a { color:#5369d3; font-size:.82rem; font-weight:700; }
+.hero-socials a:hover { text-decoration:underline; text-underline-offset:4px; }
+.skip-link { position:fixed; z-index:100; top:10px; left:10px; padding:10px 14px; background:#172554; color:white; border-radius:8px; transform:translateY(-160%); }
+.skip-link:focus { transform:translateY(0); }
+.badge-title-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.badge-title-grid .badge-card { min-height:150px; }
+.badge-title-grid .badge-card small { line-height:1.45; }
+.badge-more { background:linear-gradient(145deg,#fff,#f0f2ff); }
+.back-to-top { position:fixed; z-index:15; right:22px; bottom:22px; width:44px; height:44px; border:1px solid #d9dce4; border-radius:50%; background:#fff; color:#5369d3; font-size:1.35rem; font-weight:700; box-shadow:0 8px 24px #1d273322; cursor:pointer; opacity:0; visibility:hidden; transform:translateY(8px); transition:opacity .2s,transform .2s,visibility .2s; }
+.back-to-top.visible { opacity:1; visibility:visible; transform:translateY(0); }
+.nav-links a[aria-current="location"] { color:#5369d3; font-weight:700; }
+.project-card,.skill-card,.badge-card,.education-card,.contact-links>a { transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease; }
+.project-card:hover,.skill-card:hover,.badge-card:hover,.education-card:hover { transform:translateY(-4px); box-shadow:0 16px 34px #27324c12; }
+.contact-links>a:hover { transform:translateY(-3px); border-color:#aeb9ed; }
+body.dark-mode { color-scheme:dark; }
+body.dark-mode .eyebrow,body.dark-mode .hero-meta,body.dark-mode .section-note,body.dark-mode .badge-intro,body.dark-mode .badge-footnote,body.dark-mode .footer p,body.dark-mode .footer-inner>span,body.dark-mode .project-type,body.dark-mode .project-footer,body.dark-mode .education-card p,body.dark-mode .education-card small,body.dark-mode .skill-card p,body.dark-mode .repo-panel-head p,body.dark-mode .repo-meta { color:#aab4c5; }
+body.dark-mode .nav-links a,body.dark-mode .brand { color:#edf0f7; }
+body.dark-mode .nav-links a:hover,body.dark-mode .nav-links a[aria-current="location"] { color:#aab8ff; }
+body.dark-mode .nav-cta { border-color:#53617d; color:#c7d0ff; }
+body.dark-mode .menu-toggle { color:#edf0f7; }
+body.dark-mode .theme-toggle,body.dark-mode .back-to-top { background:#263349; color:#edf0f7; border-color:#45516a; }
+body.dark-mode .education-icon,body.dark-mode .skill-icon,body.dark-mode .contact-links>a>span,body.dark-mode .github-mark { background:#303d59; color:#c7d0ff; }
+body.dark-mode .workspace-projects small,body.dark-mode .workspace-topbar,body.dark-mode .workspace-projects>p { color:#aab4c5; }
+body.dark-mode .workspace-chip { background:#263349; border-color:#45516a; color:#edf0f7; }
+body.dark-mode .badge-more { background:#263349; }
+body.dark-mode .repo-item { border-color:#354158; }
+body.dark-mode .repo-item a,body.dark-mode .project-footer a,body.dark-mode .text-link,body.dark-mode .hero-socials a { color:#aab8ff; }
+body.dark-mode .status-complete { background:#1e453b; color:#a5e2ca; }
+body.dark-mode .status-prototype { background:#493b26; color:#f0d19a; }
+body.dark-mode .learning-tag { background:#493b26; color:#f0d19a; }
+body.dark-mode .skill-tag { background:#1e453b; color:#a5e2ca; }
+body.dark-mode .nav-links.open { border-color:#30394b; }
+@media(max-width:850px) { .badge-title-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media(max-width:600px) {
+  .nav { gap:10px; }
+  .nav-controls { margin-left:auto; gap:8px; }
+  .nav-links { order:4; }
+  .badge-title-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .badge-title-grid .badge-card { min-height:135px; }
+  .hero-socials { gap:14px; }
+  .back-to-top { right:14px; bottom:14px; }
+}
+@media(hover:none) { .project-card:hover,.skill-card:hover,.badge-card:hover,.education-card:hover,.contact-links>a:hover { transform:none; box-shadow:none; } }
