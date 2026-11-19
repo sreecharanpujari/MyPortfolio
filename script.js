@@ -48,7 +48,7 @@ function applyTheme(dark) {
 applyTheme(savedTheme ? savedTheme === "dark" : prefersDark);
 
 themeToggle?.addEventListener("click", () => {
-  const dark = !document.body.classList.contains("dark-mode");
+  const dark = document.body.classList.contains("light-mode");
   applyTheme(dark);
   try { localStorage.setItem(themeStorageKey, dark ? "dark" : "light"); } catch (error) {
     console.warn("Could not save theme preference.", error);
