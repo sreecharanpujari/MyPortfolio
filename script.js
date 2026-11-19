@@ -37,7 +37,7 @@ try { savedTheme = localStorage.getItem(themeStorageKey); } catch (error) {
 }
 
 function applyTheme(dark) {
-  document.body.classList.toggle("dark-mode", dark);
+  document.body.classList.toggle("light-mode", !dark);
   if (themeToggle) {
     themeToggle.textContent = dark ? "☀️" : "🌙";
     themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
