@@ -129,3 +129,11 @@
     letter-spacing: -0.025em;
   }
 }
+/* Keep the full name together */
+.hero-copy h1 span {
+  white-space: nowrap;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+}
