@@ -106,3 +106,8 @@
     font-size: 0.7rem;
   }
 }
+/* Improve name spacing */
+.brand {
+  letter-spacing: -0.02em;
+  word-spacing: 0.08em;
+}
