@@ -604,3 +604,36 @@ body{background:#f6f5f0;background-image:none;color:#262923;font-family:"DM Sans
 :where(a,button,summary,[tabindex]):focus-visible{outline:2px solid #a45f49;outline-offset:3px}
 @media(max-width:700px){.hero{padding-top:48px;gap:28px}.hero-art{height:260px}.about-panel{grid-template-columns:1fr}.section{padding:62px 0}.nav-links{background:#f6f5f0;border:1px solid #deded5}}
 @media(prefers-reduced-motion:reduce){.project-card,.education-content,.exploring-card,.pinned-repo{transition:none!important}}
+
+/* Hero card typography fix: keep the message clear and remove the overlapping counter. */
+.hero-art{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:flex-start;
+  padding:clamp(24px,4vw,42px);
+  box-sizing:border-box;
+  background:#e9e9df;
+}
+.hero-art .code-float{display:none!important}
+.hero-art .dream-note{
+  position:static;
+  margin:auto 0;
+  max-width:100%;
+  font:italic clamp(1.45rem,3vw,2.35rem)/1.25 Georgia,"Times New Roman",serif;
+  color:#48685b;
+  text-shadow:none;
+  transform:none;
+}
+.hero-art .hero-caption{
+  position:static;
+  max-width:100%;
+  color:#74796e;
+  font-size:.62rem;
+  line-height:1.6;
+  letter-spacing:.12em;
+}
+@media(max-width:700px){
+  .hero-art{padding:24px;min-height:230px}
+  .hero-art .dream-note{font-size:1.65rem}
+}
